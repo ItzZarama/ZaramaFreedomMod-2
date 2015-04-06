@@ -1,4 +1,4 @@
-# ZFM # 
+# ZFM 
 
 Copyrights
 
@@ -7,3 +7,4 @@ Copyrights
 (C) ItzZarama 2015 - 2015
 
 The next release will come soon.
+It is Version #### 1.1
