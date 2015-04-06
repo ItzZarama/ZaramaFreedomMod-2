@@ -2,6 +2,8 @@ package me.StevenLawson.TotalFreedomMod;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
+import static me.StevenLawson.TotalFreedom.TFM_Util.ZFM_DEVELOPERS;
+import static me.StevenLawson.TotalFreedom.TFM_Util.FOUNDERS;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -17,6 +19,8 @@ public enum TFM_PlayerRank
     SENIOR("a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
     OWNER("the " + ChatColor.BLUE + "Owner", ChatColor.BLUE + "[Owner]"),
     CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
+    ZFM_DEVELOPERS("a " + ChatColor.DARK_PURPLE + "Creator of ZFM", ChatColor.DARK_PURPLE + "[Developer]"
+    FOUNDERS("The " + ChatColor.DARK_RED + "Founder Of Zarama Freedom", ChatColor.DARK_RED + "[Founder]"
     private final String loginMessage;
     private final String prefix;
 
@@ -68,6 +72,16 @@ public enum TFM_PlayerRank
         if (DEVELOPERS.contains(sender.getName()))
         {
             return DEVELOPER;
+        }
+        
+        if (ZFM_DEVELOPERS.contains(sender.getName()))
+        {
+            return ZFM_DEVELOPERS;
+        }
+        
+        if (FOUNDERS.contains(sender.getName()))
+        {
+            return FOUNDERS;
         }
 
         final TFM_Admin entry = TFM_AdminList.getEntryByIp(TFM_Util.getIp((Player) sender));
