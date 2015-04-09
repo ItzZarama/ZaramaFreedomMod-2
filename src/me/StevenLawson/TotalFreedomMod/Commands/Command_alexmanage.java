@@ -1,12 +1,3 @@
-{\rtf1\ansi\ansicpg1252
-{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red51\green51\blue51;\red255\green255\blue255;}
-\deftab720
-\pard\pardeftab720\partightenfactor0
-
-\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 package me.StevenLawson.TotalFreedomMod.Commands;\
-\
 import me.StevenLawson.TotalFreedomMod.TFM_Admin;\
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;\
 import me.StevenLawson.TotalFreedomMod.TFM_Util;\
