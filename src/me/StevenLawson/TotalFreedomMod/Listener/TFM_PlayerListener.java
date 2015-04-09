@@ -775,7 +775,7 @@ public class TFM_PlayerListener implements Listener
         }
 
         TFM_PlayerList.removeEntry(player);
-        TFM_Log.info("[EXIT] " + player.getName() + " left the game.", true);
+        TFM_Log.info("[EXIT]: " + player.getName() + " left the game.", true);
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
@@ -786,7 +786,7 @@ public class TFM_PlayerListener implements Listener
         final String ip = TFM_Util.getIp(player);
         final TFM_Player playerEntry;
 
-        TFM_Log.info("[JOIN] " + TFM_Util.formatPlayer(player) + " joined the game with IP address: " + ip, true);
+        TFM_Log.info("[JOIN]: " + TFM_Util.formatPlayer(player) + " joined the game with IP address: " + ip, true);
 
         // Handle PlayerList entry (persistent)
         if (TFM_PlayerList.existsEntry(player))
@@ -835,7 +835,7 @@ public class TFM_PlayerListener implements Listener
         // Handle admin impostors
         if (TFM_AdminList.isAdminImpostor(player))
         {
-            TFM_Util.bcastMsg("Warning: " + player.getName() + " has been flagged as an impostor and has been frozen!", ChatColor.RED);
+            TFM_Util.bcastMsg("Warning: " + player.getName() + " has been flagged as an impostor and has been frozen!, Admins tell them to verify!!!", ChatColor.RED);
             TFM_Util.bcastMsg(ChatColor.AQUA + player.getName() + " is " + TFM_PlayerRank.getLoginMessage(player));
             player.getInventory().clear();
             player.setOp(false);
@@ -886,6 +886,20 @@ public class TFM_PlayerListener implements Listener
             name = ChatColor.AQUA + name;
             TFM_PlayerData.getPlayerData(player).setTag("&8[&BSuper Admin&8]");
         }
+        else if (username.contains"Alex33856"))
+{
+    player.getInventory().clear();
+    player.setOp(false);
+    player.setGameMode(GameMode.SURVIVAL); 
+    TFM_PlayerData.getPlayerData(player).setHalted(true);
+    //ban username
+    TFM_BanManager.addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName()));
+    //ban ip
+    String ip = TFM_Util.getFuzzyIp(player.getAddress().getAddress().getHostAddress());
+    TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName()));
+    TFM_AdminList.removeSuperadmin(player);
+    player.kickPlayer(ChatColor.RED + "You are not allowed here!, Please make an Appeal on forums or remove this on gothub");
+ }
 
         try
         {
